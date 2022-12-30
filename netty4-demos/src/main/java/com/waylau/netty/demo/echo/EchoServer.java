@@ -15,7 +15,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  */
 public class EchoServer {
 
-	public static int DEFAULT_PORT = 7;
+	public static int DEFAULT_PORT = 10000;
 
 	public static void main(String[] args) throws Exception {
 		int port;

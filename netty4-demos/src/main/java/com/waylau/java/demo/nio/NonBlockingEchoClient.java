@@ -23,6 +23,9 @@ public class NonBlockingEchoClient {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
+		args = new String[]{"localhost","10000"};
+
 		if (args.length != 2) {
 			System.err.println("用法: java NonBlockingEchoClient <host name> <port number>");
 			System.exit(1);

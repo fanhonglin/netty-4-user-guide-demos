@@ -25,6 +25,9 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 public final class EchoClient {
 
 	public static void main(String[] args) throws Exception {
+
+		args = new String[]{"localhost","10000"};
+
 		if (args.length != 2) {
 			System.err.println("用法: java EchoClient <host name> <port number>");
 			System.exit(1);

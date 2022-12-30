@@ -20,7 +20,7 @@ import java.util.Set;
  * @author <a href="https://waylau.com">Way Lau</a>
  */
 public class NonBlokingEchoServer {
-	public static int DEFAULT_PORT = 7;
+	public static int DEFAULT_PORT = 10000;
 
 	/**
 	 * @param args
