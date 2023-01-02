@@ -13,6 +13,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @since 1.0.0 2019年10月2日
  * @author <a href="https://waylau.com">Way Lau</a>
  */
+
+//@Slf4j
 public class EchoServer {
 
 	public static int DEFAULT_PORT = 10000;
@@ -32,15 +34,22 @@ public class EchoServer {
 		
 		try {
 			// 启动NIO服务的引导程序类
-			ServerBootstrap b = new ServerBootstrap(); 
-			
-			b.group(bossGroup, workerGroup) // 设置EventLoopGroup
+			ServerBootstrap b = new ServerBootstrap();
+
+			// 设置EventLoopGroup
+			b.group(bossGroup, workerGroup)
+
+			// 反射NioServerSocketChannel实例化， 创建ServerSocketChannel
 			.channel(NioServerSocketChannel.class) // 指明新的Channel的类型
+
+
 			.childHandler(new EchoServerHandler()) // 指定ChannelHandler
 			.option(ChannelOption.SO_BACKLOG, 128) // 设置的ServerChannel的一些选项
 			.childOption(ChannelOption.SO_KEEPALIVE, true); // 设置的ServerChannel的子Channel的选项
  
 			// 绑定端口，开始接收进来的连接
+			// bind当中, initAndRegister创建服务端channel
+			// init
 			ChannelFuture f = b.bind(port).sync(); 
 
 			System.out.println("EchoServer已启动，端口：" + port);
